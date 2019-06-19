@@ -17,8 +17,8 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
-let studentsList = document.querySelectorAll[]; 
-const studentsPage = 10;
+let studentsList = document.querySelectorAll[student-item]; 
+const studentsPages = 10;
 
 
 
@@ -36,14 +36,15 @@ const studentsPage = 10;
        that will be passed into the parens later when you call or 
        "invoke" the function 
 ***/
-
-const showPage = (List,Page) => {
-  
-   let studentsList = (studentsPage)  
+//Created a function that will show page and list for ten students at one time and will hide the remaining student list
+const showPage = (list, page) => {
+ //This will go for firstpage will list 10 students
+   let startPage = (page * studentsPages )  - studentsPages;
+   let lastPage = page * studentsPages;
    
    [{
-      studentNames: [ 'name', 'category' ],
-      page: 3,
+      studentsPage: [ 'name', 'category' ],
+      page:1,
       pagination: 
 [{
  
@@ -95,7 +96,7 @@ const appendPageLinks = (studentsList) => {
    clicked link using event.target
    */
    }
-
+   document.addEventListener('DOMContentLoaded', init, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
