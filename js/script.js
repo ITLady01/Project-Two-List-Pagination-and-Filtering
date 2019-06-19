@@ -19,6 +19,8 @@ FSJS project 2 - List Filter and Pagination
 
 let studentsList = document.querySelector('.student-list'); 
 const studentsPages = 10;
+var currentPage = 1;
+var numberOfPages = 0;
 
 //console.log(studentsList);
 
@@ -44,8 +46,10 @@ const showPage = (list, page) => {
    let indexStart = (page * studentsPages )  - studentsPages;
    let indexEnd = page * studentsPages;
    console.log(list, page);
+   //console.log(list, page);
    //This function will hide the studentsList
-   studentsList.hide();
+  
+ 
   //Select appropriate
   
   
@@ -59,9 +63,8 @@ const showPage = (list, page) => {
    that should be shown on the page, show it***/
    
 
-for (let i = 0; i <= list.length; i++) {
-   studentsList
-   {
+/***for (let i = 0; i < studentsList.length; i++) {
+
 if (i >= indexStart  && i<=indexEnd){
    list[i].style.display = "display";
       
@@ -70,38 +73,77 @@ if (i >= indexStart  && i<=indexEnd){
 
    }
 
-  
+}*
 
    //Create the `appendPageLinks function` to generate, append, and add 
    //functionality to the pagination buttons.
 
    const appendPageLinks = (studentsList) => {
-   button1.addEventListener("click", function(){
-      for (var i = 0; i < li.length; i++){
-          if (i >= 10){
-              li[i].style.display = "none"
-          }
-  
-          else {li[i].style.display = "block"
-          }
+   let totalPages = Math.ceil(list.length/studentsPages);
+
+   ('#demo').pagination({
+      studentsList: [1, 2, 3, 4, 5, 6, 7, ... , 100],
+      pageSize: 5,
+      showPrevious: false,
+      showNext: false,
+      callback: function(data, pagination) {
+          // template method of yourself
+          var html = template(data);
+          dataContainer.html(html);
       }
-  
-      button1.className = "buttons highlighted";
-      button2.className = "buttons ";
-      button3.className = "buttons";
-      button4.className = "buttons";
-      button5.className = "buttons";
-      button6.className = "buttons";
-  
-      document.body.scrollTop = document.documentElement.scrollTop = 0;
-  
   })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
   //this button will only show the next set of 10 items, the rest will be hidden. 
   //It will also have the "highlighed" class attached to it when it is clicked. Futhermore it
-  //will scroll to the top of the page when clicked, just for user convenience. 
-  
+  //will scroll to the top of the page when clicked, just for user convenience.
+
+  button1.addEventListener("click", function(){
+   for (var i = 0; i < li.length; i++){
+       if (i >= 10){
+           li[i].style.display = "none"
+       }
+
+       else {li[i].style.display = "block"
+       }
+   }
+
+   button1.className = "buttons highlighted";
+   button2.className = "buttons ";
+   button3.className = "buttons";
+   button4.className = "buttons";
+   button5.className = "buttons";
+   button6.className = "buttons";
+
+   document.body.scrollTop = document.documentElement.scrollTop = 0;
+
+})
+
   
   button2.addEventListener("click", function(){
       for (var i = 0; i < li.length; i++){
@@ -185,9 +227,6 @@ if (i >= indexStart  && i<=indexEnd){
   /*this button will only show the next set of 10 items, the rest will be hidden. 
   It will also have the "highlighed" class attached to it when it is clicked. Futhermore it
   will scroll to the top of the page when clicked, just for user convenience. 
-  
-  
-
   
   button5.addEventListener("click", function(){
       for (var i = 0; i < li.length; i++){
