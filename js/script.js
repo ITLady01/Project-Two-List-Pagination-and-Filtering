@@ -17,15 +17,16 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
-let studentsList = document.querySelectorAll[student-item]; 
-const studentsPages = 10;
+let studentsList = document.querySelectorAll('.student-item'); 
+const studentsPages = 10
+console.log(studentsList);
+
 
 
 
 /*** 
    Create the `showPage` function to hide all of the items in the 
    list except for the ten you want to show.
-
    Pro Tips: 
      - Keep in mind that with a list of 54 students, the last page 
        will only display four.
@@ -39,16 +40,11 @@ const studentsPages = 10;
 //Created a function that will show page and list for ten students at one time and will hide the remaining student list
 const showPage = (list, page) => {
  //This will go for firstpage will list 10 students
-   let startPage = (page * studentsPages )  - studentsPages;
-   let lastPage = page * studentsPages;
-   
-   [{
-      studentsPage: [ 'name', 'category' ],
-      page:1,
-      pagination: 
-[{
- 
-
+   let indexStart = (page * studentsPages )  - studentsPages;
+   let indexEnd = page * studentsPages;
+   studentsList.hide();
+  //Select appropriate
+  
 //some actions
          
    /*
@@ -58,7 +54,11 @@ const showPage = (list, page) => {
    -- && the list item index is <= the index of the last item
    that should be shown on the page, show it
    */
-  for (i = 0; i < x.length; i++)
+
+for (let i = 0; i < list.length; i++) {
+   studentsList
+if (i >= indexStart  && i<=indexEnd)
+};
 
 /*** 
    Create the `appendPageLinks function` to generate, append, and add 
@@ -66,17 +66,7 @@ const showPage = (list, page) => {
 ***/
 
 const appendPageLinks = (studentsList) => {
-   $(function() {
-      var html = '<div class ="new1" ><img id = "new2" onclick = "showPage(' + id + 
-          ');" class = "' + id + 
-          '" src="@Url.Content("~/Images/blankpageQ.jpg")" />' + 
-          i + '</div>');
-      $(".pageListQuiz")
-        .children('div')
-        .eq(numOfPages - 1)
-        .append(html);
-    
-      function showPage() {
+   
         //some actions
       }
     });
@@ -95,8 +85,17 @@ const appendPageLinks = (studentsList) => {
    7. Add the active class to the link that was just clicked. You can identify that
    clicked link using event.target
    */
+
+  [{
+   studentsPage: [ 'name', 'category' ],
+   page:1,
+   pagination: 
+[{
+
+
    }
    document.addEventListener('DOMContentLoaded', init, false);
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
+
