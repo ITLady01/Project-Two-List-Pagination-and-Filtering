@@ -16,12 +16,17 @@ FSJS project 2 - List Filter and Pagination
    will only be used inside of a function, then it can be locally 
    scoped to that function.
 ***/
-
-let studentsList = document.querySelector('.student-list'); 
+/* Added the two constant variables
+  First variable studentsList this will pull the student list from the HTML file(DOM element)
+  Then I added the queryselector this will query and search for any tag name with a class name that is called student-list.
+Second variable is set to */
+let studentsList = document.querySelector('.student-item').children; 
+let searchResults = Array.prototype.slice.call(document.querySelectorAll(".student-item"));
+let AmtOfStudents = studentsList.length;
 const studentsPages = 10;
-var currentPage = 1;
-var numberOfPages = 0;
-
+const pageHeader = document.querySelector('.page-header');
+const AmtOfPages = Math.ceil(AmtOfStudents/studentsPages);
+const page = document.querySelector('.page');
 //console.log(studentsList);
 
 
@@ -40,17 +45,15 @@ var numberOfPages = 0;
        that will be passed into the parens later when you call or 
        "invoke" the function ***/ 
 
-//Created a function that will show page and list for ten students at one time and will hide the remaining student list
+//Created a function that will show the page and list all ten students at one time and will hide the remaining student list
 const showPage = (list, page) => {
- //This will go for firstpage will list 10 students
+ //This will go for firstpage and will list 10 students
    let indexStart = (page * studentsPages )  - studentsPages;
    let indexEnd = page * studentsPages;
-   console.log(list, page);
+  // console.log(list, page);
    //console.log(list, page);
-   //This function will hide the studentsList
-  
- 
-  //Select appropriate
+
+   //Select appropriate
   
   
 //some actions
@@ -63,35 +66,49 @@ const showPage = (list, page) => {
    that should be shown on the page, show it***/
    
 
-/***for (let i = 0; i < studentsList.length; i++) {
-
+for (let i = 0; i < studentsList.length; i++) {
+let li= list[i];
 if (i >= indexStart  && i<=indexEnd){
-   list[i].style.display = "display";
-      
-   } else { 
-      list[i].style.display = "";
-
+   list[i].style.display = "display";// This will show the pages
+      } else { 
+      list[i].style.display = "";//This will hide the students pages
+      }
    }
 
-}*
+};
 
-   //Create the `appendPageLinks function` to generate, append, and add 
-   //functionality to the pagination buttons.
+   /*The`appendPageLinks function` will generate, append, and add 
+   functionality to the pagination buttons.*/
 
-   const appendPageLinks = (studentsList) => {
+   const appendPageLinks = (list) => {
    let totalPages = Math.ceil(list.length/studentsPages);
+   const PageOfDivElement = document.querySelector('.page');
+   const paginationDiv = document.createElement('div');
 
-   ('#demo').pagination({
-      studentsList: [1, 2, 3, 4, 5, 6, 7, ... , 100],
-      pageSize: 5,
-      showPrevious: false,
-      showNext: false,
-      callback: function(data, pagination) {
-          // template method of yourself
-          var html = template(data);
-          dataContainer.html(html);
-      }
-  })
+   // I am setting an attribute class to pagination
+  PageOfDivElement.appendChild(paginationDiv)
+   paginatonDiv.setAttribute('class','pagination');
+   let ul= document.createElement('li');
+   pagination.classList.add('pagination');
+   paginationDiv.appendChild(ul);
+
+   for (let i = 1; i <= AmtOfPages; i+= 1){
+    let li = document.createElement('li');
+    let link = document.createElement('a');
+    link.setAttribute('class', 'link');
+   }
+
+    link.innerText = i;
+    li.appendChild(link);
+    ul.appendChild(li);
+
+    link.addEventListener("click",(e) => {
+      showPage(studentsList,i);
+
+      
+   }
+   
+   
 
 
 
