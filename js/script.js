@@ -72,7 +72,7 @@ const appendPageLinks = (list) => {
         let link = document.createElement('a');
         link.setAttribute('class', 'link');
         //link.className = 'active';
-
+       // This is to color the buttom
         //link.style.color = "red";
         link.style.backgroundColor = "white";
 
@@ -80,16 +80,19 @@ const appendPageLinks = (list) => {
         link.innerHTML = i;
         li.appendChild(link);
         ul.appendChild(li);
- 
+ //code is working 
         link.addEventListener("click", (event) => {
             const buttons = event.target;
             const paginationLink = document.querySelectorAll('.paginationLi');
             for (let i = 0; i, buttons.length; i++) {
                 buttons[i].className = "none";
-            }
+            }       
+            else  {li[i].style.display = "block"
             
-           // buttons.className = "active";
-        }
+        {
+          buttons.className = "active";
+          button1.className =
+         }
         paginationDiv.appendChild(ul);
         Console.log(document.querySelector("ul").innerHTML);
     }
