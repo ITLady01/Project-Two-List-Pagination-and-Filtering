@@ -17,43 +17,27 @@ FSJS project 2 - List Filter and Pagination
    scoped to that function.
 ***/
 
-let studentsList = document.querySelector('student-list'); 
+//These are the two global variables 
+// The first variable within the global scope will query a list called"student-item" which has 54 students.
+// The second variable is set to ten students per page
+let studentsList = document.querySelectorAll('.student-item');
 const studentsPages = 10;
 
-
-
-/*** 
-   Create the `showPage` function to hide all of the items in the 
-   list except for the ten you want to show.
-
-   Pro Tips: 
-     - Keep in mind that with a list of 54 students, the last page 
-       will only display four.
-     - Remember that the first student has an index of 0.
-     - Remember that a function `parameter` goes in the parens when 
-       you initially define the function, and it acts as a variable 
-       or a placeholder to represent the actual function `argument` 
-       that will be passed into the parens later when you call or 
-       "invoke" the function 
-***/
-
+//The showPage function will show list and page
 const showPage = (list, page) => {
-
+//The index start page will start the page from 0-11,
+//The index end page will end the page 
     let indexStart = (page * studentsPages) - studentsPages;
     let indexEnd = (page * studentsPages);
-
-    /*** Loop over items in the list parameter
-   -- If the index of a list item is >= the index of the first
-   item that should be shown on the page
-   -- && the list item index is <= the index of the last item
-   that should be shown on the page, show it***/
+ //This is the for loop and it will f
    
-
-for (let i = 1; i < studentsList.length; i++) {
-    let li= list[i];
-    if (i >= indexStart  && i< indexEnd) {
+for (let i = 0; i <= list.length; i++) {
+let li= list[i];
+    if (i >= indexStart  && i< indexEnd)
+         {
        list[i].style.display = "block";// This will show the pages
-          } else { 
+          } 
+    else { 
           list[i].style.display = "none";//This will hide the students pages
           }
        }
@@ -66,43 +50,53 @@ for (let i = 1; i < studentsList.length; i++) {
    functionality to the pagination buttons.
 ***/
 
-//showPage(studentsList, 2)
-   /*The`appendPageLinks function` will generate, append, and add 
-   functionality to the pagination buttons.*/
-
-   const appendPageLinks = (list) => {
-    let totalPages = Math.ceil(list.length/studentsPages);
+//showPage(studentsList, 6);
+   /** The`appendPageLinks function` will generate, append, and add 
+   functionality to the pagination buttons.
+*/
+const appendPageLinks = (list) => {
+    let totalPages = Math.ceil(list.length / studentsPages);
     const PageOfDivElement = document.querySelector('.page');
     const paginationDiv = document.createElement('div');
- // I am setting an attribute class to pagination
- document.querySelector(".page").appendChild(paginationDiv)// Appending the child
- paginatonDiv.setAttribute('class','pagination');//set the attribute to pagination
- let ul= document.createElement('ul');//create an element
- //pagination.classList.add('pagination');//create a classList and 
- paginationDiv.appendChild(ul);
+    paginationDiv.setAttribute('class', 'pagination');//set the attribute to pagination
 
- for (let i = 1; i <= totalPages; i++){
-  let li = document.createElement('li');
-  let link = document.createElement('a');
-  link.setAttribute('class', 'link');
-  a.className = 'active';
-  let ActivePage = event.target.textContent;
-  link.innerHTML = i;
-  
-  link.addEventListener("click",(event) => {
-  const buttons = event.target;
-  const paginationLink = document.querySelectorAll('.paginationLi');
-  for( let i = 0; i, buttons.length; i ++){
-buttons[i].className ="none";
-  }
-  buttons.className ="active";
-});
- }
-  
-  li.appendChild(link);
-  ul.appendChild(li);
- }
-  showPage(studentsList, ActivePage);
+    // I am setting an attribute class to pagination
+    document.querySelector(".page").appendChild(paginationDiv)// Appending the child
+   
+    let ul = document.createElement('ul');//create an element
+    //pagination.classList.add('pagination');//create a classList and 
+    
+
+    for (let i = 1; i <= totalPages; i++) {
+        let li = document.createElement('li');
+        let link = document.createElement('a');
+        link.setAttribute('class', 'link');
+        //link.className = 'active';
+
+        //link.style.color = "red";
+        link.style.backgroundColor = "white";
+
+        //let ActivePage = event.target.textContent;
+        link.innerHTML = i;
+        li.appendChild(link);
+        ul.appendChild(li);
+ 
+        link.addEventListener("click", (event) => {
+            const buttons = event.target;
+            const paginationLink = document.querySelectorAll('.paginationLi');
+            for (let i = 0; i, buttons.length; i++) {
+                buttons[i].className = "none";
+            }
+            
+           // buttons.className = "active";
+        }
+        paginationDiv.appendChild(ul);
+        Console.log(document.querySelector("ul").innerHTML);
+    }
+
+    
+
+  //showPage(studentsList, ActivePage);
   appendPageLinks(studentsList);
   
 
