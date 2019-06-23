@@ -57,8 +57,8 @@ const appendPageLinks = (list) => {
 	   paginationDiv.appendChild (ul);     	
 
       for (let y = 0; y < AmtofPages; y++) {
-	      let li = document.createElement("li");  // Adding a  <li> name tag       
-	      let link = document.createElement("a");  // Adding <a> name tag
+	     let li = document.createElement("li");  // Adding a  <li> name tag       
+	     let link = document.createElement("a");  // Adding <a> name tag
 	     link.className = 'active';    // Makes current link class active 
 	     link.href = '#';
 	     link.textContent = y;
