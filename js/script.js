@@ -4,7 +4,7 @@ JavaScript List Filtering and Pagination App.
 // Study guide for this project - https://drive.google.com/file/d/1OD1diUsTMdpfMDv677TfL1xO2CEkykSz/view?usp=sharing
 
 //These are the define all global variables 
-// The first variable within the global scope will query a list called"student-item" which has 54 students.
+// The first variable within the global scope will query a list called"li" tag which has 54 students.
 // The second variable is set to ten students per page
 let studentsList = document.querySelectorAll('li');
 const studentsPages = 10;
