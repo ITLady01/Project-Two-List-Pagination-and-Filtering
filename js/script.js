@@ -23,7 +23,7 @@ const showPage = (list, page) => {
 //The index first page will start the page from 0-11 and etc.
 //The index last page will end the page 
    let indexFirst = (page * studentsPages) - studentsPages;
-   let indexLast = page * studentsPages;
+   let indexLast = (page * studentsPages);
 
    for (let i = 0; i < list.length; i++) { // The students List will be going through a loop 
       let li= list[i];
