@@ -19,7 +19,7 @@ document.querySelector('.page').appendChild(p);
 //console.log(studentsList);
 //This code has been tested and is working
 //The showPage function will show list and page
-const showPage = (list, page, AmtofPages) => {
+const showPage = (list, page,) => {
 //The index first page will start the page from 0-11 and etc.
 //The index last page will end the page 
    let indexFirst = (page * studentsPages) - studentsPages;
@@ -28,9 +28,9 @@ const showPage = (list, page, AmtofPages) => {
    for (let i = 0; i < list.length; i++) { // The Students List will be going through a loop 
       let li= list[i];
       if (i >= indexFirst && i < indexLast) {
-         list[i].style.display ='';// This will show the pages
+         list[i].style.display ='block';// This will show the pages
       } else {
-         list[i].style.display ='none';//This will hide the students pages
+         list[i].style.display = "none";//This will hide the students pages
       }
    }
 
@@ -58,7 +58,7 @@ const appendPageLinks = (list) => {
       link.textContent = i + 1;//Makes the text content will be value of i
       link.style.backgroundColor = "white";//Added the style background white  
       link.style.color = "blue"//Added the style to the color blue
-      showPage(list, i, AmtofPages);                                             
+      //showPage(list, i,);                                             
    }
    const anchors = document.querySelectorAll('a');
 
@@ -83,7 +83,7 @@ const appendPageLinks = (list) => {
    }
    }
 
-//function to create and append search bar elements
+//function to create and append search input elements
  appendsearchInput = () => {
    const searchDiv = document.createElement('div');
    const searchInput = document.createElement('input');
