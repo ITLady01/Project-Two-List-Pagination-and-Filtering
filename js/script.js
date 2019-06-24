@@ -57,7 +57,7 @@ const appendPageLinks = (list) => {
       link.textContent = i + 1;//Makes the text content will be value of i
       //link.style.backgroundColor = "white";//Added the style background white  
       //link.style.color = "blue"//Added the style to the color blue
-      //showPage(list, i,);                                             
+      showPage(list, i,);                                             
    }
    const anchors = document.querySelectorAll('a');// This is a query selector and it will select all a tags.
 
