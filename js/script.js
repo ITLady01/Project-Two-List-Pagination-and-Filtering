@@ -8,7 +8,7 @@ FSJS project 2 - List Filter and Pagination
 //These are the define all global variables 
 // The first variable within the global scope will query a list called"student-item" which has 54 students.
 // The second variable is set to ten students per page
-let studentsList = document.querySelectorAll('.student-item');
+let studentsList = document.querySelectorAll('.li');
 const studentsPages = 10;
 let p = document.createElement('p');
 p.innerHTML = "Students not listed";
@@ -23,11 +23,10 @@ const showPage = (list, page) => {
 //The index first page will start the page from 0-11 and etc.
 //The index last page will end the page 
    let indexFirst = (page * studentsPages) - studentsPages;
-   let indexLast = (page * studentsPages);
+   let indexLast = page * studentsPages;
 
    for (let i = 0; i < list.length; i++) { // The students List will be going through a loop 
-      let li= list[i];
-      if (i >= indexFirst && i < indexLast) {
+            if (i >= indexFirst && i < indexLast) {
          list[i].style.display ='block';// This will show the pages
       } else {
          list[i].style.display = "none";//This will hide the students pages
@@ -43,7 +42,7 @@ const appendPageLinks = (list) => {
    const PageOfDivElement = document.querySelector('.page'); //The parent is PageOfDivElement and it will select the class name .page from the HTML file
    const paginationDiv = document.createElement('div');    // Creating div and creating an element for div
    const ul = document.createElement('ul');                 // Creating an element for ul
-   paginationDiv.className = 'pagination';                 // Giving class name to the parent "paginationDiv"
+   paginationDiv.className = "pagination";                 // Giving class name to the parent "paginationDiv"
    PageOfDivElement.appendChild(paginationDiv);     	// Appending the parent to the child (ul)
    paginationDiv.appendChild(ul);
 
@@ -53,7 +52,7 @@ const appendPageLinks = (list) => {
       const link = document.createElement('a');  // Adding <a> name tag
       li.appendChild(link);// Adding the li to child to the link   
      // link.setAttribute('class', 'pagination');// Setting the attribute to the class and pagination
-      link.className = 'active';    // Makes current link class active 
+      //link.className = 'active';    // Makes current link class active 
       link.href = '#';// This is the href and it's assigned to # which will pulled from the HTML file
       link.textContent = i + 1;//Makes the text content will be value of i
       //link.style.backgroundColor = "white";//Added the style background white  
@@ -62,7 +61,7 @@ const appendPageLinks = (list) => {
    }
    const anchors = document.querySelectorAll('a');// This is a query selector and it will select all a tags.
 
-  // ul.firstElementChild.firstElementChild.className = "active";
+   ul.firstElementChild.firstElementChild.className = "active";
    
      
       for (let i = 0; i < anchors.length; i++) {  // This is the for loop and it will loop through the anchors
@@ -103,8 +102,8 @@ const search = document.querySelector('#search-input');
 const searchButton = document.querySelector('#search-button');
 search.setAttribute('onkeyup', 'searchStudents(search, studentsList)');
 search.addEventListener('keyup', () => {
-   if (!(document.querySelectorAll('.match').length) && search.value !== "block") {
-      document.querySelector('#none-found').style.display = "block";
+   if (!(document.querySelectorAll('.match').length) && search.value !== "") {
+      document.querySelector('#none-found').style.display = "";
       document.querySelector('.pagination').remove();
       appendPageLinks('<ul></ul>');
    } else if (document.querySelectorAll('.match').length) {
@@ -131,7 +130,7 @@ function searchStudents(search, students) {
     if(search.value.length !== 0 && students[i].querySelector('h3').textContent.toLowerCase().includes(search.value.toLowerCase())) {
     students[i].classList.add('match'); 
     } else if(search.value.length === 0) {
-      students[i].style.display = "block";
+      students[i].style.display = "";
    } else {
        students[i].style.display = "none";
       }
