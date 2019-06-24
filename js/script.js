@@ -53,7 +53,7 @@ const showPage = (list, page) => {
       link.textContent = i + 1;//Makes the text content will be value of i
       li.appendChild(link);//Appending the child to the (link)
       //Tested the the function
-      showPage(list, i,);
+      //showPage(list, i,);
    }
 
    const anchors = document.querySelectorAll('a');// This is a query selector and it will select all a tags.
