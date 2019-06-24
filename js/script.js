@@ -106,8 +106,8 @@ const search = document.querySelector('#search-input');
 const searchButton = document.querySelector('#search-button');
 search.setAttribute('onkeyup', 'searchStudents(search, studentsList)');
 search.addEventListener('keyup', () => {
-   if (!(document.querySelectorAll('.match').length) && search.value !== "") {
-      document.querySelector('#none-found').style.display = "";
+   if (!(document.querySelectorAll('.match').length) && search.value !== "block") {
+      document.querySelector('#none-found').style.display = "block";
       document.querySelector('.pagination').remove();
       appendPageLinks('<ul></ul>');
    } else if (document.querySelectorAll('.match').length) {
