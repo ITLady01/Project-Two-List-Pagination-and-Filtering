@@ -52,7 +52,7 @@ const appendPageLinks = (list) => {
       ul.appendChild(li);  // Appending the child to the li       
       const link = document.createElement('a');  // Adding <a> name tag
       li.appendChild(link);// Adding the li to child to the link   
-      link.setAttribute('class', 'pagination');// Setting the attribute to the class and pagination
+     // link.setAttribute('class', 'pagination');// Setting the attribute to the class and pagination
       link.className = 'active';    // Makes current link class active 
       link.href = '#';// This is the href and it's assigned to # which will pulled from the HTML file
       link.textContent = i + 1;//Makes the text content will be value of i
