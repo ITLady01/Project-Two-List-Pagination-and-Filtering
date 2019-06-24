@@ -39,7 +39,7 @@ const showPage = (list, page) => {
   // showPage(studentsList, 2); Tested the code and called function and it displayed the ten students and hid the rest of the list.
  /*The `appendPageLinks function` will generate, append, and add functionality to the pagination buttons.*/
 const appendPageLinks = (list) => {
-   const AmtofPages = Math.ceil(list.length / studentsPages);  // This is calculating the total number of pages from the student list,
+   const AmtofPages = Math.ceil(list.length / studentsPages);  // This is calculating the total number of pages from the student list.
    const PageOfDivElement = document.querySelector('.page'); //The parent is PageOfDivElement and it will select the class name .page from the HTML file
    const paginationDiv = document.createElement('div');    // Creating div and creating an element for div
    const ul = document.createElement('ul');                 // Creating an element for ul
