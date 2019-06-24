@@ -60,23 +60,23 @@ const appendPageLinks = (list) => {
       link.style.color = "blue"//Added the style to the color blue
       //showPage(list, i,);                                             
    }
-   const anchors = document.querySelectorAll('a');
+   const anchors = document.querySelectorAll('a');// This is a query selector and it will select all a tags.
 
    ul.firstElementChild.firstElementChild.className = "active";
    
      
-      for (let i = 0; i < anchors.length; i++) {
-         anchors[i].addEventListener('click', event => {
-            const li_list = ul.getElementsByTagName('li');
+      for (let i = 0; i < anchors.length; i++) {  // This is the for loop and it will loop through the anchors
+         anchors[i].addEventListener('click', event => { // This is the eventlistner and when the click is pressed by user the event will listen for the click.
+            const li_list = ul.getElementsByTagName('li');// This is get the all elements by pulling the Tag name li
 
-         for (let i = 1; i < li_list.length; i++) {
-            li_list.item(i).firstElementChild.className = "";
+         for (let i = 1; i < li_list.length; i++) { // This is the for loop and it will loop through the list
+            li_list.item(i).firstElementChild.className = "";//This is the firstElement child (li_list.item)
          }
          event.target.className = "active";
          showPage(list, event.target.textContent);
          const hover = event.target;
-         hover.style.backgroundColor = "blue";
-         hover.style.color = "orange";
+         hover.style.backgroundColor = "blue";//I have added color to the background when the page is pressed.
+         hover.style.color = "orange";//The font will change color when it is pressed.
                  
       })
    
@@ -125,6 +125,7 @@ search.addEventListener('keyup', () => {
    }
 }
 )
+//This is a function set for the search button and this function will search for students within the search button.
 searchButton.setAttribute('click', 'searchStudents(search, studentsList)');
 
 function searchStudents(search, students) {
@@ -140,6 +141,6 @@ function searchStudents(search, students) {
     }
   }
    
-//function calls
+//Calling all functions
 showPage(studentsList, 1);
 appendPageLinks(studentsList);
