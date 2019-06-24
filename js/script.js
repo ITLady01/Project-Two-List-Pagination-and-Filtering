@@ -56,13 +56,13 @@ const appendPageLinks = (list) => {
       link.className = 'active';    // Makes current link class active 
       link.href = '#';// This is the href and it's assigned to # which will pulled from the HTML file
       link.textContent = i + 1;//Makes the text content will be value of i
-      link.style.backgroundColor = "white";//Added the style background white  
-      link.style.color = "blue"//Added the style to the color blue
+      //link.style.backgroundColor = "white";//Added the style background white  
+      //link.style.color = "blue"//Added the style to the color blue
       //showPage(list, i,);                                             
    }
    const anchors = document.querySelectorAll('a');// This is a query selector and it will select all a tags.
 
-   ul.firstElementChild.firstElementChild.className = "active";
+  // ul.firstElementChild.firstElementChild.className = "active";
    
      
       for (let i = 0; i < anchors.length; i++) {  // This is the for loop and it will loop through the anchors
