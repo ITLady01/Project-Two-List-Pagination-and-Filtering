@@ -61,7 +61,7 @@ const appendPageLinks = (list) => {
    }
    const anchors = document.querySelectorAll('a');// This is a query selector and it will select all a tags.
 
-   ul.firstElementChild.firstElementChild.className = "active";
+   //ul.firstElementChild.firstElementChild.className = "active";
    
      
       for (let i = 0; i < anchors.length; i++) {  // This is the for loop and it will loop through the anchors
