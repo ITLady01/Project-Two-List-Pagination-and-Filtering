@@ -103,7 +103,7 @@ const searchButton = document.querySelector('#search-button');
 search.setAttribute('onkeyup', 'searchStudents(search, studentsList)');
 search.addEventListener('keyup', () => {
    if (!(document.querySelectorAll('.match').length) && search.value !== "") {
-      document.querySelector('#none-found').style.display = "";
+      document.querySelector('#none-found').style.display = "block";
       document.querySelector('.pagination').remove();
       appendPageLinks('<ul></ul>');
    } else if (document.querySelectorAll('.match').length) {
@@ -130,7 +130,7 @@ function searchStudents(search, students) {
     if(search.value.length !== 0 && students[i].querySelector('h3').textContent.toLowerCase().includes(search.value.toLowerCase())) {
     students[i].classList.add('match'); 
     } else if(search.value.length === 0) {
-      students[i].style.display = "";
+      students[i].style.display = "block";
    } else {
        students[i].style.display = "none";
       }
