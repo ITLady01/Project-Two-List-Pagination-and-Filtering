@@ -75,8 +75,8 @@ const appendPageLinks = (list) => {
          event.target.className = "active";
          showPage(list, event.target.textContent);
          const hover = event.target;
-         hover.style.backgroundColor = "white";//I have added color to the background when the page is pressed.
-         hover.style.color = "orange";//The font will change color when it is pressed.
+         link.style.backgroundColor = "white";//I have added color to the background when the page is pressed.
+         link.style.color = "orange";//The font will change color when it is pressed.
                  
       })
    
