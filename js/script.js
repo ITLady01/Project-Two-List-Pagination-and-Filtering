@@ -9,7 +9,7 @@ FSJS project 2 - List Filter and Pagination
 // The first variable within the global scope will query a list called"student-item" which has 54 students.
 // The second variable is set to ten students per page
 let studentsList = document.querySelectorAll('.student-item');
-let studentsPages = 10;
+const studentsPages = 10;
 let p = document.createElement('p');
 p.innerHTML = "Students not listed";
 p.style.display = "none";
@@ -19,13 +19,13 @@ document.querySelector('.page').appendChild(p);
 //console.log(studentsList);
 //This code has been tested and is working
 //The showPage function will show list and page
-const showPage = (list, page,) => {
+const showPage = (list, page) => {
 //The index first page will start the page from 0-11 and etc.
 //The index last page will end the page 
    let indexFirst = (page * studentsPages) - studentsPages;
    let indexLast = page * studentsPages;
 
-   for (let i = 0; i < list.length; i++) { // The Students List will be going through a loop 
+   for (let i = 0; i < list.length; i++) { // The students List will be going through a loop 
       let li= list[i];
       if (i >= indexFirst && i < indexLast) {
          list[i].style.display ='block';// This will show the pages
@@ -39,7 +39,7 @@ const showPage = (list, page,) => {
   // showPage(studentsList, 2); Tested the code and called function and it displayed the ten students and hid the rest of the list.
  /*The `appendPageLinks function` will generate, append, and add functionality to the pagination buttons.*/
 const appendPageLinks = (list) => {
-   const AmtofPages = Math.ceil(list.length / 10);  // This is calculating the total number of pages from the student list,
+   const AmtofPages = Math.ceil(list.length / studentsPages);  // This is calculating the total number of pages from the student list,
    const PageOfDivElement = document.querySelector('.page'); //The parent is PageOfDivElement and it will select the class name .page from the HTML file
    const paginationDiv = document.createElement('div');    // Creating div and creating an element for div
    const ul = document.createElement('ul');                 // Creating an element for ul
